@@ -1,5 +1,8 @@
-#include "SpiderNetLinux.h"
+#if SPIDERNET_PLATFORM  == SPIDERNET_PLATFORM_WINDOWS
 #include "SpiderNetWindows.h"
+#elif SPIDERNET_PLATFORM  == SPIDERNET_PLATFORM_LINUX
+#include "SpiderNetLinux.h"
+#endif
 
 using namespace SpiderNet;
 

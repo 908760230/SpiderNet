@@ -3,5 +3,5 @@ message(STATUS "src This is SOURCE dir " ${PROJECT_SOURCE_DIR})
 
 aux_source_directory(. DIR_PLATFORM)
 
-SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
-add_executable(out  ${DIR_PLATFORM})
+
+add_library(Platform_lib ${DIR_PLATFORM})
