@@ -20,18 +20,15 @@
 
 #if defined _WIN32 || _WIN64 
 #define SPIDERNET_PLATFORM  SPIDERNET_PLATFORM_WINDOWS
-#endif // _WIN32 || _WIN64
-
-
-#if defined _linux || _linux_
+#elif defined __linux || __linux__
 	#define SPIDERNET_PLATFORM  SPIDERNET_PLATFORM_LINUX
 #endif // _linux || _linux_
 
-#if defined __APPLE_
+#if defined __APPLE__
 	#define SPIDER_PLATFORM	SPIDERNET_PLATFORM_APPLE
 #endif // __APPLE_
 
-#if defined _unix || _unix_
+#if defined __unix || __unix__
 	#define SPIDER_PLATFORM SPIDERNET_PLATFORM_UNIX
 #endif // _unix || _unix_
 

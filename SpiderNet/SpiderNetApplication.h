@@ -10,10 +10,10 @@ namespace SpiderNet
     {
     public:
         Application(){};
-        virtual ~Application(){};
+        ~Application(){};
         
 
-        virtual void run() = 0;
+        void run();
 
     private:
 

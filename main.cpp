@@ -1,20 +1,10 @@
-#if SPIDERNET_PLATFORM  == SPIDERNET_PLATFORM_WINDOWS
-#include "SpiderNetWindows.h"
-#elif SPIDERNET_PLATFORM  == SPIDERNET_PLATFORM_LINUX
-#include "SpiderNetLinux.h"
-#endif
+#include "SpiderNetApplication.h"
 
 using namespace SpiderNet;
 
 int main() {
     
-
-#if SPIDERNET_PLATFORM  == SPIDERNET_PLATFORM_WINDOWS
-    Application &app = Windows();
-#elif SPIDERNET_PLATFORM  == SPIDERNET_PLATFORM_LINUX
-    Application &app = Linux;
-#endif
-
+    Application app;
     try
     {
         app.run();
