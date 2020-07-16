@@ -2,6 +2,6 @@
 
 
 
-This is  a personal project which i want to improve my C++ programming ability!
+This is  a personal project which i want to improve my C++ programming ability by!
 
  
