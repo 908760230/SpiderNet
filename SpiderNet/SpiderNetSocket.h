@@ -1,7 +1,7 @@
 #ifndef spidernetsocket_h
 #define spidernetsocket_h
 
-#include "SpiderNetPrerequisites.h"
+#include "../Common/SpiderNetPrerequisites.h"
 
 namespace SpiderNet
 {
@@ -11,7 +11,7 @@ namespace SpiderNet
     private:
         /* data */
     public:
-        enum class SOCKET_TYPE
+        enum class SOCKET_PROTOCOL_TYPE
         {
             SOCKET_TCP,
             SOCKET_UDP,
@@ -20,8 +20,10 @@ namespace SpiderNet
         };
 
     public:
-        Socket(SOCKET_TYPE type,unsigned int port,);
+        Socket(SOCKET_TYPE type);
         ~Socket();
+
+        
     };
 
 } // namespace SpiderNet

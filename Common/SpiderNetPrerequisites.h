@@ -43,6 +43,7 @@ namespace SpiderNet
     class Node;
     class RemoteMessage;
     class Server;
+    class SocketMessage;
     class SocketServer;
     class Timer;
     class UDPAddress;
