@@ -1,4 +1,5 @@
 #include "SpiderNetApplication.h"
+#include "SpiderNetTimer.h"
 
 namespace SpiderNet
 {
@@ -93,7 +94,7 @@ namespace SpiderNet
         //Handle handle(config.harbor);
         //MessageQueue *messageQueue = MessageQueue::getInstance();
         //moduleManager = new ModuleManager(config.modulePath);
-        //Timer timer;
+        Timer timer;
     }
 
     void Application::setConfig(const Config &cfg)

@@ -1,7 +1,7 @@
 #ifndef SPIDERNETAPPLICATION_H
 #define SPIDERNETAPPLICATION_H
 
-#include "../Common/SpiderNetPrerequisites.h"
+#include "SpiderNetPrerequisites.h"
 #include "SpiderNetConfig.h"
 #include "../ThirdParty/lua/lua.hpp"
 

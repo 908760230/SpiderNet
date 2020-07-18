@@ -1,7 +1,7 @@
 #ifndef SPIDERNETHANDLE_H
 #define SPIDERNETHANDLE_H
 
-#include "../Common/SpiderNetPrerequisites.h"
+#include "SpiderNetPrerequisites.h"
 
 // reserve high 8 bits for remote id
 #define HANDLE_MASK 0xffffff

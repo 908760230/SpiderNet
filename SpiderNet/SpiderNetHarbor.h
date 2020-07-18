@@ -1,7 +1,7 @@
 #ifndef SPIDERNETHARBOR_H
 #define SPIDERNETHARBOR_H
 
-#include "../Common/SpiderNetPrerequisites.h"
+#include "SpiderNetPrerequisites.h"
 
 #define GLOBALNAME_LENGTH 16
 #define REMOTE_MAX 256

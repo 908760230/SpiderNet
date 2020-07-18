@@ -4,6 +4,44 @@
 
 using namespace std::chrono;
 
+// for profile
+
+#define NANOSEC 1000000000
+#define MICROSEC 1000000
+
+// centisecond: 1/100 second
+static void systime(uint32_t *sec, uint32_t *cs)
+{
+#if !defined(__APPLE__) || defined(AVAILABLE_MAC_OS_X_VERSION_10_12_AND_LATER)
+	struct timespec ti;
+	clock_gettime(CLOCK_REALTIME, &ti);
+	*sec = (uint32_t)ti.tv_sec;
+	*cs = (uint32_t)(ti.tv_nsec / 10000000);
+#else
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	*sec = tv.tv_sec;
+	*cs = tv.tv_usec / 10000;
+#endif
+}
+
+static uint64_t gettime()
+{
+	uint64_t t;
+#if !defined(__APPLE__) || defined(AVAILABLE_MAC_OS_X_VERSION_10_12_AND_LATER)
+	struct timespec ti;
+	clock_gettime(CLOCK_MONOTONIC, &ti);
+	t = (uint64_t)ti.tv_sec * 100;
+	t += ti.tv_nsec / 10000000;
+#else
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	t = (uint64_t)tv.tv_sec * 100;
+	t += tv.tv_usec / 10000;
+#endif
+	return t;
+}
+
 namespace SpiderNet
 {
 
@@ -12,9 +50,7 @@ namespace SpiderNet
 					 startTime(0),
 					 currentPoint(0)
 	{
-		time_point<steady_clock, microseconds> tmp = time_point_cast<microseconds>(steady_clock::now());
-		startTime = tmp.time_since_epoch().count() / 100000;
-		current = tmp.time_since_epoch().count();
+
 		int i, j;
 		for (i = 0; i < TIME_NEAR; i++)
 		{
@@ -72,7 +108,21 @@ namespace SpiderNet
 
 	uint64 Timer::threadTime()
 	{
-		return uint64();
+#if !defined(__APPLE__) || defined(AVAILABLE_MAC_OS_X_VERSION_10_12_AND_LATER)
+		struct timespec ti;
+		clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ti);
+
+		return (uint64_t)ti.tv_sec * MICROSEC + (uint64_t)ti.tv_nsec / (NANOSEC / MICROSEC);
+#else
+		struct task_thread_times_info aTaskInfo;
+		mach_msg_type_number_t aTaskInfoCount = TASK_THREAD_TIMES_INFO_COUNT;
+		if (KERN_SUCCESS != task_info(mach_task_self(), TASK_THREAD_TIMES_INFO, (task_info_t)&aTaskInfo, &aTaskInfoCount))
+		{
+			return 0;
+		}
+
+		return (uint64_t)(aTaskInfo.user_time.seconds) + (uint64_t)aTaskInfo.user_time.microseconds;
+#endif
 	}
 
 	TimerNode *Timer::linkClear(LinkList *list)
@@ -194,6 +244,11 @@ namespace SpiderNet
 			// dispatch_list don't need lock T
 			dispatchList(current);
 		}
+	}
+
+	uint64 Timer::now()
+	{
+		return current;
 	}
 
 } // namespace SpiderNet

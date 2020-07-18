@@ -16,6 +16,6 @@ add_subdirectory(SpiderNet)
 
 
 
-add_executable(Spidernet  main.cpp)
+add_executable(out  main.cpp)
 
-target_link_libraries(Spidernet Common_lib SpiderNet_lib lua_lib)
+target_link_libraries(out  SpiderNet_lib lua_lib)

@@ -1,7 +1,7 @@
 #ifndef SPIDERNETMONITOR_H
 #define SPIDERNETMONITOR_H
 
-#include "../Common/SpiderNetPrerequisites.h"
+#include "SpiderNetPrerequisites.h"
 
 namespace SpiderNet
 {

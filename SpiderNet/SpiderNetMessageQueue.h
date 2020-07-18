@@ -1,7 +1,7 @@
 #ifndef SPIDERNETMESSAGEQUEUE_H
 #define SPIDERNETMESSAGEQUEUE_H
 
-#include "../Common/SpiderNetPrerequisites.h"
+#include "SpiderNetPrerequisites.h"
 
 #define MESSAGE_TYPE_SHIFT ((sizeof(size_t) - 1) * 8)
 

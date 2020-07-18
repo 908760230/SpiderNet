@@ -1,7 +1,7 @@
 #ifndef SPIDERNETEPOLL_H
 #define SPIDERNETEPOLL_H
 
-#include "../Common/SpiderNetPrerequisites.h"
+#include "SpiderNetPrerequisites.h"
 
 namespace SpiderNet{
 

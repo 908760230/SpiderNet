@@ -1,7 +1,7 @@
 #ifndef SPIDERNETSOCKETINFO_H
 #define SPIDERNETSOCKETINFO_H
 
-#include "../Common/SpiderNetPrerequisites.h"
+#include "SpiderNetPrerequisites.h"
 namespace SpiderNet
 {
 

@@ -1,7 +1,7 @@
 #ifndef SPIDERNETCONFIGFILE_H
 #define SPIDERNETCONFIGFILE_H
 
-#include "../Common/SpiderNetPrerequisites.h"
+#include "SpiderNetPrerequisites.h"
 
 namespace SpiderNet {
 

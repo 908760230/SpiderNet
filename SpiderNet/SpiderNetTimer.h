@@ -1,7 +1,7 @@
 #ifndef SPIDERNETTIMER_H
 #define SPIDERNETTIMER_H
 
-#include "../Common/SpiderNetPrerequisites.h"
+#include "SpiderNetPrerequisites.h"
 
 namespace SpiderNet
 {
@@ -45,6 +45,7 @@ namespace SpiderNet
         void update();
         uint32 start();
         uint64 threadTime();
+        uint64 now();
 
     private:
         TimerNode *linkClear(LinkList *list);

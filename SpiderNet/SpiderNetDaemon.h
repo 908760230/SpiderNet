@@ -1,7 +1,7 @@
 #ifndef SPIDERNETDAEMON_H
 #define SPIDERNETDAEMON_H
 
-#include "../Common/SpiderNetPrerequisites.h"
+#include "SpiderNetPrerequisites.h"
 
 namespace SpiderNet
 {
