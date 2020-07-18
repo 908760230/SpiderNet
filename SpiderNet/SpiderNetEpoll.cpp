@@ -1,16 +1,8 @@
 #include "SpiderNetEpoll.h"
+#include "SpiderNetSocketInfo.h"
 
 namespace SpiderNet
 {
-    struct Event
-    {
-        void *s;
-        bool read;
-        bool write;
-        bool error;
-        bool eof;
-    };
-
     int Epoll::create(){
         return epoll_create(1024);
     }
@@ -19,7 +11,7 @@ namespace SpiderNet
     }
     bool Epoll::invalid(int fd){
         return fd == -1;
-    }3
+    }
 
     int Epoll::add(int fd,int socket,void *ud){
         epoll_event ev;

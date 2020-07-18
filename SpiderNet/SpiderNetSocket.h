@@ -11,19 +11,9 @@ namespace SpiderNet
     private:
         /* data */
     public:
-        enum class SOCKET_PROTOCOL_TYPE
-        {
-            SOCKET_TCP,
-            SOCKET_UDP,
-            SOCKET_SCTP,
-            SOCKET_UNKNOW
-        };
-
     public:
         Socket(SOCKET_TYPE type);
         ~Socket();
-
-        
     };
 
 } // namespace SpiderNet

@@ -1,35 +1,14 @@
 #ifndef SPIDERNETSOCKETSERVER_H
 #define SPIDERNETSOCKETSERVER_H
 
-#include "../Common/SpiderNetPrerequisites.h"
+#include "SpiderNetSocketInfo.h"
 
 namespace SpiderNet
 {
-    struct SocketObject
-    {
-        const void *(*buffer)(const void *);
-        size_t (*size)(const void *);
-        void (*free)(void *);
-    };
-    enum class SOCKET_BUFFER_TYPE
-    {
-        MEMORY,
-        OBJECT,
-        RAWPOINTER
-    };
-
-    struct SocketSendBuffer
-    {
-
-        int id;
-        SOCKET_BUFFER_TYPE type;
-        const void *buffer;
-        size_t sz;
-    };
 
     class SockerServer
     {
-        public：
+    public:
         SockerServer(uint64 time);
         ~SockerServer();
 
@@ -41,7 +20,8 @@ namespace SpiderNet
         void start(uintptr_t opaque, int id);
 
         // return -1 when error
-        int send(SocketSendBuffer *buffer) int sendLowPriority(SocketSendBuffer *buffer)
+        int send(SocketSendBuffer *buffer);
+        int sendLowPriority(SocketSendBuffer *buffer);
 
             // ctrl command below returns id
             int listen(uintptr_t opaque, const char *addr, int port, int backlog);
@@ -70,7 +50,7 @@ namespace SpiderNet
         char buffer[128];
         uint8_t udpbuffer[65535];
         fd_set rfds;
-    }
+    };
 } // namespace SpiderNet
 
 #endif

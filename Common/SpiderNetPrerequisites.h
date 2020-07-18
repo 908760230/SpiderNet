@@ -48,7 +48,7 @@ namespace SpiderNet
     class Timer;
     class UDPAddress;
     struct Event;
-
+    class SpinLock;
 } // namespace SpiderNet
 
 #include "SpiderNetException.h"
