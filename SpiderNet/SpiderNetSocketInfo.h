@@ -36,6 +36,17 @@ namespace SpiderNet
         uint64 write;
     };
 
+    struct WriteBuffer
+    {
+        const void *buffer;
+        char *ptr;
+        size_t sz;
+        bool userobject;
+        uint8 udp_address[19];
+    };
+
+    typedef std::list<std::shared_ptr<WriteBuffer>> WriteBufferList;
+
     struct SocketData
     {
         uintptr_t opaque;
@@ -81,17 +92,6 @@ namespace SpiderNet
         const void *buffer;
         size_t sz;
     };
-
-    struct WriteBuffer
-    {
-        const void *buffer;
-        char *ptr;
-        size_t sz;
-        bool userobject;
-        uint8_t udp_address[19];
-    };
-
-    typedef std::list<std::shared_ptr<WriteBuffer>> WriteBufferList;
 
     // -------------------------------------------------------------------
     //                      request  package

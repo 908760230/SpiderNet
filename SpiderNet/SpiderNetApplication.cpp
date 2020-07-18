@@ -72,9 +72,6 @@ namespace SpiderNet
         config.profile = optBoolean("profile", 1);
 
         lua_close(luaState);
-
-        std::cout<< config.thread <<" "<< config.modulePath<<" "<<config.harbor<<std::endl;
-
         start();
     }
 

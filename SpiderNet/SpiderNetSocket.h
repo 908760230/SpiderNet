@@ -1,8 +1,7 @@
 #ifndef spidernetsocket_h
 #define spidernetsocket_h
 
-#include "../Common/SpiderNetPrerequisites.h"
-
+#include "SpiderNetSocketServer.h"
 namespace SpiderNet
 {
 
@@ -12,7 +11,7 @@ namespace SpiderNet
         /* data */
     public:
     public:
-        Socket(SOCKET_TYPE type);
+        Socket(SOCKET_PROTOCOL_TYPE type);
         ~Socket();
     };
 
